@@ -5,18 +5,27 @@
 </head>
 <body>
 	
+	<a href="#">click me to sow sample_product.jpg</a>
+	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-	<script type="text/javascript" src="makeHay.js"></script>
+	<script type="text/javascript" src="jquery.haymaker.js"></script>
 	
 	<script type="text/javascript">
-		var hm = new $.HayMaker;
+	
+		var serf = new $.HayMaker;
 		
-		hm.sow([
-			'/makeHay/test_resource.txt',
-			'/makeHay/sample-product.jpg'
+		serf.sow([
+			'buddy_icon.png',
+			'test_resource.txt',
+			'test_resource_2.txt'
 		]);
 		
-		console.log(hm);
+		$('a').click(function(e) {
+			e.preventDefault();
+			serf.sow('sample_product.jpg');
+		});
+		
+		console.log(serf);
 	</script>
 	
 </body>
