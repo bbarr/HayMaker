@@ -15,14 +15,14 @@
 		var serf = new $.HayMaker;
 		
 		serf.sow([
-			'buddy_icon.png',
-			'test_resource.txt',
-			'test_resource_2.txt'
+			'assets/buddy_icon.png',
+			'assets/test_resource.txt',
+			'assets/test_resource_2.txt'
 		]);
 		
 		$('a').click(function(e) {
 			e.preventDefault();
-			serf.sow('sample_product.jpg');
+			serf.sow('assets/sample_product.jpg');
 		});
 		
 		console.log(serf);
