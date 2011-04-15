@@ -1,3 +1,15 @@
+/**
+ *  A preloader of images/ajax requests.
+ *  Uses sessionStorage to try and not "cache" the same image twice.
+ *  Releases UI thread every 300ms.
+ *
+ *  Example:
+ *    var hm = new $.HayMaker();
+ *    hm.queue(['an_image.jpg', '/some/service', 'another_image.png']);
+ *
+ *  @author Brendan Barr - brendanbarr.web@gmail.com
+ */
+
 (function($) {
 	
 	if (typeof $.HayMaker !== 'undefined') {
@@ -64,7 +76,7 @@
 			
 			var uri = this.queue.shift();
 			if (this._is_logged(uri)) {
-				return;
+				this_dequeue();
 			}
 			
 			if (/(.jpg|.png|.gif)$/.test(uri)) {
